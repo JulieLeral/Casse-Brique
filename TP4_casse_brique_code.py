@@ -1,8 +1,7 @@
-# Julie LE RAL - CPE - TP4 Casse brique - Interface
+# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique
 # DO TO : finir programme
-# - la balle bouge lorsqu'on appuie sur Lancer
-# - attention format brique
-# - probleme au niveau du bouton lancer
+# - collisition brique et balle
+# - faire les vies et le score
 
 
 from tkinter import Button, Label, StringVar, Frame
@@ -28,7 +27,6 @@ score = StringVar()
 score.set("Score ->")
 labelscore = Label(frame_haut, textvariable = score, height = 2, width = 10, font = ("Calibri", 20))
 labelscore.pack(side = 'right', padx = 10, pady = 10)
-
 vie = StringVar()
 vie.set("Vie ->")
 labelvie = Label(frame_haut, textvariable = vie, height = 2, width = 10, font = ("Calibri", 20))
@@ -87,7 +85,7 @@ class raquette() :
 
     def gauche(self, event) :
         # fonction qui permet de déplacer la raquette vers la gauche en utilisant le clavier
-        # entrée : 
+        # entrée : le canvas
         # sortie : la raquette bouge
             coords = self.canvas.coords(self.raquette)
             if coords[0] > 0:  
@@ -129,9 +127,9 @@ balle = canvas.create_oval(x - rayon , y - rayon , x + rayon , y + rayon , width
 
 
 def collision() :
-    # fonction qui permet que la balle se déplace
+    # fonction qui permet la collision entre widgets
     # entrée : aucune
-    # sortie : la balle se déplace
+    # sortie : la balle rebond
     global dx, dy, x, y, rayon
     a1x, a1y, a2x, a2y = canvas.bbox(maraquette.raquette) 
     b1x, b1y, b2x, b2y = canvas.bbox(balle)
@@ -139,7 +137,6 @@ def collision() :
         dy = -abs(dy)
         y = a1y - rayon
         canvas.coords(balle, x - rayon, y - rayon, x + rayon, y + rayon)
-
 
 def  deplacement() :
     # fonction qui permet que la balle se déplace
@@ -164,13 +161,11 @@ def  deplacement() :
     canvas.coords(balle, x - rayon, y - rayon, x + rayon, y + rayon)
     mafenetre.after(20, deplacement)
 
-deplacement()
 
 # Création des boutons quitter et lancer
 boutonquitter = Button(mafenetre, text = 'Quitter', bg = 'chocolate2', fg = 'white', height = 4, width = 7, font = ("Britannic Bold", 16), command = mafenetre.destroy)
 boutonquitter.pack(side = 'right', padx = 100)
-
-boutonlancer = Button(mafenetre, text = 'Lancer', bg = 'royalblue2', fg = 'white', height = 4, width = 7, font = ("Britannic Bold", 16))
+boutonlancer = Button(mafenetre, text = 'Lancer', bg = 'royalblue2', fg = 'white', height = 4, width = 7, font = ("Britannic Bold", 16), command = lambda : deplacement())
 boutonlancer.pack(side = 'left', padx = 100)
 
 

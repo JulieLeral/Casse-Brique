@@ -139,9 +139,9 @@ def collision() :
 
     if a1x <= b2x <= a2x and a1y <= b2y <= a2y :
 
-    if a1y <= b1y <= a2y and a1y <= b1x <= a2x :
+    if a1x <= b1y <= a2y and a1y <= b1x <= a2x :
 
-    if a1y <= b1y <= a2y and a1y <= b1x <= a2x :
+    if a1x <= b1y <= a2y and a1y <= b1x <= a2x :
 
 
 

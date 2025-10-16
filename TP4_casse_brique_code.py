@@ -131,7 +131,18 @@ class ball() :
 
 balle = canvas.create_oval(x - rayon , y - rayon , x + rayon , y + rayon , width = 1, outline = 'white', fill = 'white')
 
-def collision() :
+
+def collision() : 
+    a1x, a1y, a2x, a2y = canvas.bbox(maraquette)
+    b1x, b1y, b2x, b2y = canvas.bbox(balle)
+    if a1x <= b1x <= a2x and a1y <= b1y <= a2y :
+
+    if a1x <= b2x <= a2x and a1y <= b2y <= a2y :
+
+    if a1y <= b1y <= a2y and a1y <= b1x <= a2x :
+
+    if a1y <= b1y <= a2y and a1y <= b1x <= a2x :
+
 
 
 

@@ -1,10 +1,10 @@
-# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique
+# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
 
 import random as rd
 import math as mat
 
 # Classe Balle
-class balle() :
+class Balle() :
 
     def __init__(self, canvas, raquette, brique, principale ) :
         self.canvas = canvas

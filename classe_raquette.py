@@ -1,8 +1,8 @@
-# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique
+# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
 # DO TO : ameliorer le programme
 
 # Classe Raquette
-class raquette() : 
+class Raquette() : 
 
     def __init__(self,canvas) :
         self.canvas = canvas

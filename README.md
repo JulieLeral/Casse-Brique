@@ -1,4 +1,4 @@
-# Casse-Brique
+# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
 
 # Règles du jeu : 
 1. Déplacez la raquette avec les flèches < et >,
@@ -22,6 +22,3 @@
 # TO DO : 
 - pile : mémoriser les derniers scores obtenus
 - file : messages à l’écran (par exemple, “+10 points”, “Super tir !”) sans les montrer tous d’un coup
-
-- sortir les classes du fichier principal 
-- faire une classe avec le canvas et les boutons 

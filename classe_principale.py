@@ -1,17 +1,20 @@
-# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique
+# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
 
 from tkinter import Button, Label, StringVar, Frame
 import tkinter as tk
 from PIL import Image, ImageTk 
 import os
+from collections import deque
 
 # Classe du canvas et des boutons
-class principale() :
-    def __init__(self, fenetre, brique, raquette, balle) :
+class Principale() :
+    briques = []
+
+    def __init__(self, fenetre, Brique, Raquette, Balle) :
         self.fenetre = fenetre
-        self.brique = brique
-        self.raquette = raquette
-        self.balle = balle
+        self.brique = Brique
+        self.raquette = Raquette
+        self.balle = Balle
         self.hauteur = 700
         self.largeur = 900
         self.score_val = 0
@@ -44,13 +47,29 @@ class principale() :
         self.fond_tk = ImageTk.PhotoImage(fond)
         self.canvas.create_image(0, 0, anchor = "nw", image = self.fond_tk)
 
-        self.brique.creation_briques(5, "medium orchid")
-        self.raquette = raquette(self.canvas)
+        self.brique.creation_briques(self.canvas, lignes = 5, couleur ="medium orchid")
+        self.raquette = self.raquette(self.canvas)
         self.balle = self.balle(self.canvas, self.raquette, self)
 
         self.affichage()
 
         self.creation_boutons()
+
+        # self.file_messages = deque()
+
+    def creation_briques(self, canvas, lignes, couleur) :
+    # création des briques
+    # Entrée : le canvas, nombre de ligne et la couleur
+    # Sortie : briques
+        nb_briques_par_ligne = 7
+        larg_brique = 110
+        haut_brique = 50
+        marge = 5 # nombre de pixels avant la première ligne
+        for x in range(lignes) : 
+            row = marge + (haut_brique + 20) * x
+            for y in range(nb_briques_par_ligne) :
+                col = marge + y * (larg_brique + 20)
+                self.brique(canvas, col, row, larg_brique - 5, haut_brique, couleur)
 
     def affichage(self) :
         self.score.set(f"SCORE : {self.score_val}")
@@ -100,10 +119,40 @@ class principale() :
         bouton_quitter.pack(side = "left", padx = 30)
 
     def fin(self) : 
+    # affichage pour une partie perdue
+    # Entrée : self
+    # Sortie : game over
         self.canvas.create_text(450, 350, text = "GAME OVER", fill = "white", font = ("Britannic Bold", 30))
     
     def victoire(self) :
+    # affichage pour une victoire
+    # Entrée : self
+    # Sortie : winner
         self.canvas.create_text(450, 350, text = "WINNER", fill = "white", font = ("Britannic Bold", 30))
+
+    def ajouter_message(self, x, y, texte, duree = 1500) :
+    # ajouter un message
+    # Entrée : self, x, y, texte, duree
+    # Sortie : message
+        msg_id = self.canvas.create_text(x, y, text = texte, font = ("Arial", 16, "bold"), fill = "yellow")
+        # Stocker id et durée restante
+        self.file_messages.append({'id': msg_id, 'duree': duree, 'y': y})
+
+    '''def mettre_a_jour_messages(self) :
+    # mettre à jour les messages
+    # Entrée : self
+    # Sortie : nouveau message
+        for msg in list(self.file_messages) :
+            # Monter légèrement le texte
+            self.canvas.move(msg['id'], 0, -1)
+            msg['y'] -= 1
+            msg['duree'] -= 50
+            if msg['duree'] <= 0 :
+                self.canvas.delete(msg['id'])
+                self.file_messages.popleft()  # retire de la file
+        # Rappel toutes les 50 ms
+        self.fenetre.after(50, self.mettre_a_jour_messages)
+    mettre_a_jour_messages()'''
 
     
 

@@ -1,9 +1,8 @@
-# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique
+# Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
 
 # Classe Brique
-class brique() : 
-    briques = []
-    
+class Brique() : 
+
     def __init__(self, canvas, x, y, largeur, hauteur, couleur) :
         self.canvas = canvas
         self.x = x
@@ -12,9 +11,9 @@ class brique() :
         self.hauteur = hauteur
         self.couleur = couleur
         self.id = self.canvas.create_rectangle(x, y, x + largeur, y + hauteur, fill = couleur)
-        brique.briques.append(self)
+        Brique.briques.append(self)
 
-    def creation_briques(canvas, lignes, couleur) :
+    def creation_briques(self, canvas, lignes, couleur) :
     # création des briques
     # Entrée : le canvas, nombre de ligne et la couleur
     # Sortie : briques
@@ -26,12 +25,12 @@ class brique() :
             row = marge + (haut_brique + 20) * x
             for y in range(nb_briques_par_ligne) :
                 col = marge + y * (larg_brique + 20)
-                brique(canvas, col, row, larg_brique - 5, haut_brique, couleur)
+                Brique(canvas, col, row, larg_brique - 5, haut_brique, couleur)
 
     def detruire(self) :
     # détruction des briques
     # Entrée : self
     # Sortie : la brique disparait
         self.canvas.delete(self.id)
-        if self in brique.briques :
-            brique.briques.remove(self)
+        if self in Brique.briques :
+            Brique.briques.remove(self)

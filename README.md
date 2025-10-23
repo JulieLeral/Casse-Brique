@@ -19,9 +19,9 @@
 - les vies sont représentées par trois images de coeur, 
 
 
-- Tu peux utiliser une pile pour mémoriser les derniers scores obtenus, par exemple après chaque partie.
-Quand tu rejoues, tu peux afficher les 3 dernières parties.
+# TO DO : 
+- pile : mémoriser les derniers scores obtenus
+- file : messages à l’écran (par exemple, “+10 points”, “Super tir !”) sans les montrer tous d’un coup
 
-- Imagine que tu veux afficher plusieurs petits messages à l’écran (par exemple, “+10 points”, “Combo !”, “Super tir !”) sans les montrer tous d’un coup.
-Tu peux les empiler dans une file et les afficher l’un après l’autre.
-- Tu peux stocker dans une file toutes les briques à créer, et les afficher progressivement pour une animation d’apparition.
+- sortir les classes du fichier principal 
+- faire une classe avec le canvas et les boutons 

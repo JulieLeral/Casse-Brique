@@ -1,7 +1,13 @@
 # Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
-# DO TO : ameliorer le programme
 
-# Classe Raquette
+''' 
+CLASSE DE LA RAQUETTE
+Elle contient :
+- La création de la raquette, 
+- La remise à la position initiale de la raquette, 
+- Les déplacements de la raquette vers la gauche ou vers la droite. 
+'''
+
 class Raquette() : 
 
     def __init__(self,canvas) :
@@ -28,9 +34,9 @@ class Raquette() :
     # Déplacer la raquette vers la gauche
     # Entrée : event 
     # Sortie : la raquette va à gauche
-            coords = self.canvas.coords(self.id)
-            if coords[0] > 0 :  
-                self.canvas.move(self.id, -self.dx, 0)
+        coords = self.canvas.coords(self.id)
+        if coords[0] > 0 :  
+            self.canvas.move(self.id, -self.dx, 0)
     def droite(self, event) : 
     # Déplacer la raquette vers la droite
     # Entrée : event 

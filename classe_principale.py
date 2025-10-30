@@ -5,11 +5,21 @@ import tkinter as tk
 from PIL import Image, ImageTk 
 import os
 from collections import deque
-import classe_raquette as R
-import classe_balle as B
-import classe_briques as Br
 
-# Classe du canvas et des boutons
+''' 
+CLASSE PRINCIPALE
+Elle contient :
+- La création de la fenêtre du jeu (le canvas, des textes, les boutons, les images), 
+- La gestion de la variable meilleur score,
+- La gestion des scores,
+- La création des briques,
+- L'affichage du score,
+- La création de la fenêtre pour les règles du jeu,
+- La réinitialisation du jeu, 
+- La victoire ou défaite,
+- L'affichage de message pour certains actions. 
+'''
+
 class Principale() :
 
     def __init__(self, jeu, Brique_classe, Raquette_classe, Balle_classe) :

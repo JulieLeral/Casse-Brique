@@ -1,6 +1,12 @@
 # Julie LE RAL / Nour TRABELSI - CPE - TP4 Casse brique - 09/10/2025
 
-# Classe Brique
+''' 
+CLASSE DES BRIQUES
+Elle contient :
+- La création d'une brique, 
+- La destruction d'une brique. 
+'''
+
 class Brique() : 
 
     liste_briques = []

@@ -3,7 +3,16 @@
 import random as rd
 import math as mat
 
-# Classe Balle
+''' 
+CLASSE DE LA BALLE
+Elle contient :
+- La création de la balle, 
+- Le démarrage de la balle,
+- La remise à la position initiale de la balle, 
+- Les collisions avec les briques et la raquette, 
+- Les déplacements de la balle. 
+'''
+
 class Balle() :
 
     def __init__(self, canvas, raquette, Brique_classe, principale) :

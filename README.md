@@ -20,7 +20,7 @@
 - Le meilleur score est afficher a la fin de la partie si le score est supérieur au précédent meilleur score,
 - Des messages s'affichent après certaines actions comme touché un bloc ou perdre une vie.
 
-# implémentations des structures de données demandées : 
+# Implémentations des structures de données demandées : 
 - Liste : utilisation d'une liste pour gérer les briques du jeu,
 - Pile : utilisation d'une pile pour gérer le meilleur score,
 - File : utilisation d'une file pour gérer les messages à afficher.
